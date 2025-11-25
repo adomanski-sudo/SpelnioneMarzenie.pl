@@ -1,0 +1,17 @@
+.dream {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;   
+    border-radius: 10px;       
+    height: 200px;
+    
+    /* Wyśrodkowanie tekstu wewnątrz kafelka */
+    display: flex;
+    justify-content: center; /* Poziomo */
+    align-items: center;     /* Pionowo */
+    text-align: center;      /* Żeby tekst w kilku liniach też był na środku */
+    padding: 15px;
+    font-weight: bold;
+    color: #000000;
+    /* Zakrywanie gdy tekstu jest za dużo */
+    overflow: hidden;
+}

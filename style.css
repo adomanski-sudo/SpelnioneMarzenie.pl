@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+* {
+    font-family: sans-serif;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f6f8;
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    background-color: white;
+    /* Maksymalna szerokość treści */
+    max-width: 1240px; 
+    /* Wyśrodkowanie kontenera na ekranie */
+    margin: 0 auto; 
+    /* Cień */
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); 
+    /* Minimalna wysokość strony na cały ekran */
+    min-height: 100vh;
+}
+
+#header header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #fff;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+#logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+#search, #log {
+    color: #7f8c8d;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#search {
+    width: 200px;
+    padding: 10px 15px;
+    padding-left: 35px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #555;
+
+    border-radius: 50px;
+    /* Ikona lupy zakodowana w SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    
+    background-repeat: no-repeat;
+    background-position: 10px center; 
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#search:focus {
+    border-color: #aaa;
+    background-color: #fff;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    
+    /* Odstęp między kolumnami */
+    gap: 40px;
+    
+    /* Górny margines */
+    margin-top: 20px;
+}
+
+#profil {
+    /* Włączamy tryb elastyczny */
+    display: flex;
+    
+    /* Układamy elementy jeden pod drugim (pionowo) */
+    flex-direction: column;
+    
+    /* To jest kluczowe: centruje elementy w poziomie (oś poprzeczna) */
+    align-items: center;
+    
+    /* Dodatkowo centrujemy sam tekst wewnątrz dzieci (np. w opisie) */
+    text-align: center;
+    
+    /* Opcjonalnie: mały odstęp wewnętrzny, żeby nic nie dotykało krawędzi */
+    padding: 20px;
+}
+
+#profil-image {
+    background-image: url(img/profil/Profil.jpg);
+    width: 200px;
+    height: 200px;
+    
+    /* Kluczowa linijka: skaluje obrazek, by zakrył całe tło */
+    background-size: cover;
+    
+    /* Opcjonalnie, ale bardzo ważne: ustawia środek zdjęcia na środku diva */
+    background-position: center;
+    
+    /* Zapobiega powtarzaniu się zdjęcia, jeśli byłoby za małe */
+    background-repeat: no-repeat;
+
+    /* Kółko */
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    margin: 0 auto;
+}
+
+#profil-name {
+    font-size: 50px;
+    font-weight: 300; 
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    line-height: 1.2;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+}
+
+#profil-content {
+    padding-right: 20px;
+}
+
+#profil-descript {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+}
+
+#dreams {
+    display: grid;
+    /* Magiczna formuła: twórz tyle kolumn ile się zmieści, 
+       ale każda musi mieć min. 200px szerokości */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* Odstępy między kafelkami */
+    padding-right: 20px;
+    height: 800px;
+    /* Pasek przewijania */
+    overflow-y: auto;
+    padding-right: 15px;
+
+    /* Opcjonalnie: estetyczna ramka wokół obszaru marzeń (jeśli chcesz) */
+    /* border: 1px solid #eee; */
+    /* border-radius: 10px; */
+    /* padding: 20px; */
+}
+
+/* Styl wyglądu pojedynczego kafelka */
+.dream {
+    /* Podstawowy wygląd */
+    height: 250px; /* Kafelki mogą być nieco wyższe */
+    border-radius: 15px; /* Bardziej zaokrąglone rogi */
+    overflow: hidden; /* Kluczowe! Ukrywa to, co wystaje podczas powiększania */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    /* Pozycjonowanie */
+    position: relative; /* "Kotwica" dla paska i warstwy przyciemniającej */
+    /* Flexbox posłuży do wyśrodkowania ukrytego tekstu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Tło (bazowe ustawienia, konkretny obrazek w ID) */
+    background-size: cover;
+    background-position: center;
+
+    /* Płynne przejście dla powiększania */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dream::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Kolor przyciemnienia - mocny czarny (70%) */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Domyślnie niewidoczna */
+    opacity: 0;
+    /* Płynne pojawianie się */
+    transition: opacity 0.4s ease;
+    z-index: 1; /* Warstwa 1 */
+}
+
+/* --- 1. GÓRNY PASEK KATEGORII --- */
+.dream-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    /* Półprzezroczysty ciemny pasek, żeby kategoria była czytelna */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+    color: rgba(255, 255, 255, 0.9); /* Lekko zgaszona biel */
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Odstęp między ikoną a tekstem */
+    z-index: 3; /* Warstwa 3 (najwyżej) - pasek zawsze jasny */
+}
+
+/* --- 2. GŁÓWNA TREŚĆ (Tekst marzenia) --- */
+.dream-content {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    /* Cień dla super czytelności */
+    text-shadow: 0 2px 4px rgba(0,0,0,1);
+
+    /* STAN DOMYŚLNY: Ukryty i lekko przesunięty w dół */
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.4s ease;
+    z-index: 2; /* Warstwa 2 (nad przyciemnieniem, pod paskiem) */
+}
+
+.dream:hover {
+    transform: scale(1.05); /* Powiększenie o 5% */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Mocniejszy cień */
+}
+
+.dream:hover::before {
+    opacity: 1;
+}
+
+.dream:hover .dream-content {
+    opacity: 1;
+    transform: translateY(0); /* Wjazd tekstu na środek */
+}
+
+/* Styl samego przycisku */
+.dream-btn {
+    position: absolute;
+    bottom: 20px;      /* 20px od dolnej krawędzi */
+    left: 50%;         /* Ustaw lewą krawędź na środku */
+    transform: translateX(-50%) translateY(20px); /* Wyśrodkuj i przesuń w dół (stan ukryty) */
+    
+    background-color: #fff; /* Białe tło */
+    color: #333;            /* Ciemny tekst */
+    border: none;
+    padding: 10px 25px;     /* Rozmiar przycisku */
+    border-radius: 20px;    /* Mocno zaokrąglony (pigułka) */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23444' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'%3E%3C/path%3E%3C/svg%3E") 12 12, pointer;
+
+    /* Ukrywanie domyślne */
+    opacity: 0;
+    z-index: 3; /* Musi być nad warstwą przyciemniającą */
+    
+    /* Animacja pojawiania się */
+    transition: all 0.4s ease;
+}
+
+/* Styl po najechaniu na kafelek (.dream) */
+.dream:hover .dream-btn {
+    opacity: 1; /* Pokaż przycisk */
+    /* Przesuń na docelową pozycję (niwelujemy przesunięcie w dół) */
+    transform: translateX(-50%) translateY(0); 
+    
+    /* MAŁY TRIK: Opóźnienie! 
+       Przycisk wjedzie 0.1s później niż tekst. Wygląda to super płynnie. */
+    transition-delay: 0.1s; 
+}
+
+/* Opcjonalnie: Efekt po najechaniu na sam przycisk (mimo że jest nieaktywny) */
+.dream-btn:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+
+
+/* --- Kafelki --- */
+
+#Krolestwo{
+    background-image: url(img/dream/krolestwo.jpg);
+}
+
+#Lyzwy{
+    background-image: url(img/dream/Lyzwy.jpg);
+}
+
+#Masaz{
+    background-image: url(img/dream/Masaz.jpg);
+}
+
+#Spacer{
+    background-image: url(img/dream/Spacer.jpg);
+}
+
+#Kimono{
+    background-image: url(img/dream/Kimono.jpg);
+}
+
+#Bilet{
+    background-image: url(img/dream/Bilet.jpg);
+}
+
+#Quo{
+    background-image: url(img/dream/Quo.jpg);
+}
+
+#Rekawice{
+    background-image: url(img/dream/Rekawice.jpg);
+}
+
+#Koncert{
+    background-image: url(img/dream/Koncert.jpg);
+}
+
+#ZnajdzJa{
+    background-image: url(img/dream/ZnajdzJa.jpg);
+}
+
+#Kolacja{
+    background-image: url(img/dream/Kolacja.jpg);
+}
+
+#Sakwy{
+    background-image: url(img/dream/Sakwy.jpeg);
+}
+
+#Skarpetki{
+    background-image: url(img/dream/Skarpetki.jpg);
+}
+
+#Tealighty{
+    background-image: url(img/dream/Tealighty.jpg);
+}

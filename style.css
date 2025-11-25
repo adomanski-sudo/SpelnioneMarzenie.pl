@@ -302,6 +302,52 @@ body {
 }
 
 
+/* --- WERSJA MOBILNA (Dla ekranów mniejszych niż 900px) --- */
+@media (max-width: 900px) {
+
+    /* 1. Zmieniamy układ główny z "obok siebie" na "jeden pod drugim" */
+    #content {
+        grid-template-columns: 1fr; /* Tylko jedna kolumna */
+        gap: 20px;
+        margin-top: 0;
+    }
+
+    /* 2. Naprawiamy sekcję Marzeń */
+    #dreams {
+        /* Wyłączamy wewnętrzny pasek przewijania - na telefonie 
+           lepiej przewijać całą stronę kciukiem */
+        height: auto; 
+        overflow-y: visible;
+        padding-right: 0;
+        
+        /* Na telefonie kafelki mogą być na całą szerokość lub po dwa */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    /* 3. Naprawiamy Nagłówek (był bardzo ściśnięty) */
+    #header header {
+        flex-direction: column; /* Elementy jeden pod drugim */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    #search {
+        width: 100%; /* Wyszukiwarka na całą szerokość */
+        box-sizing: border-box; /* Żeby padding nie rozepchał szerokości */
+    }
+
+    /* 4. Profil - mniejsze marginesy, żeby nie marnować miejsca */
+    #profil {
+        padding: 10px;
+    }
+    
+    #profil-image {
+        width: 150px; /* Nieco mniejsze zdjęcie na telefonie */
+        height: 150px;
+    }
+}
+
+
 
 /* --- Kafelki --- */
 

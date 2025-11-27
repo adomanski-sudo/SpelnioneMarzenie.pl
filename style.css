@@ -301,6 +301,141 @@ body {
     box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
+/* --- To już pisało Gemini xD --- */
+
+/* --- KONTENER SZCZEGÓŁÓW --- */
+.dream-one {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px; /* Zaokrąglone rogi całego panelu */
+    /* Jeśli chcesz cień pod całą kartą: */
+    /* box-shadow: 0 5px 20px rgba(0,0,0,0.05); */
+}
+
+/* --- PRZYCISKI (GÓRA) --- */
+.actions {
+    display: flex;
+    justify-content: flex-end; /* Przesuwa przyciski do prawej krawędzi */
+    gap: 15px; /* Odstęp między przyciskami */
+    margin-bottom: 30px; /* Odstęp od zdjęcia poniżej */
+    border-bottom: 1px solid #eee; /* Linia oddzielająca nagłówek */
+    padding-bottom: 20px;
+}
+
+/* Wspólny styl dla obu przycisków (żeby nie pisać 2 razy tego samego) */
+.dream-btn-spelnij, .dream-btn-zrzutka {
+    background-color: #f1f1f1; /* Jasne tło domyślnie */
+    color: #555;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px; /* Pigułka */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Płynna animacja */
+}
+
+/* Specyficzne kursory (zachowałem Twoje) */
+.dream-btn-spelnij {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23444' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'%3E%3C/path%3E%3C/svg%3E") 12 12, pointer;
+}
+.dream-btn-zrzutka {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%23444' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 18V6'/%3E%3Cpath d='M8.5 8.5c0-1.5 1.5-2.5 3.5-2.5s3.5 1 3.5 2.5-1.5 2.5-3.5 2.5-3.5 1-3.5 2.5 1.5 2.5 3.5 2.5 3.5-1 3.5-2.5'/%3E%3C/svg%3E") 16 16, pointer;
+}
+
+/* Efekt najechania (Hover) - robi się "premium" */
+.dream-btn-spelnij:hover {
+    background-color: #27ae60; /* Zieleń */
+    color: white;
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
+    transform: translateY(-2px);
+}
+
+.dream-btn-zrzutka:hover {
+    background-color: #2980b9; /* Niebieski */
+    color: white;
+    box-shadow: 0 4px 10px rgba(41, 128, 185, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- GŁÓWNA TREŚĆ (ZDJĘCIE + TEKST) --- */
+.dream-one-main {
+    display: flex; /* Układamy obok siebie */
+    align-items: flex-start; /* Wyrównaj do góry */
+    gap: 40px; /* Duży odstęp między zdjęciem a tekstem */
+}
+
+/* Zdjęcie */
+.dream-pic {
+    /* Ustalamy sztywne wymiary, ale elastyczne */
+    width: 300px; 
+    height: 450px;
+    flex-shrink: 0; /* Nie zgniataj zdjęcia, gdy mało miejsca */
+    
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Ładny cień pod okładką */
+}
+
+/* Kontener na tekst i cenę */
+.dream-text-container {
+    flex-grow: 1; /* Zajmij resztę miejsca */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Rozstrzel tekst i cenę */
+    height: 450px; /* Taka sama wysokość jak zdjęcie */
+}
+
+/* Sam tekst */
+.dream-desc {
+    font-size: 18px;
+    line-height: 1.8; /* Większe odstępy między liniami = lepsza czytelność */
+    color: #444;
+    font-weight: 300;
+    text-align: justify; /* Wyjustowanie tekstu (opcjonalnie) */
+}
+
+/* Cena */
+.dream-one-price {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd; /* Linia przerywana nad ceną */
+}
+
+.dream-one-price strong {
+    font-size: 28px;
+    color: #e74c3c; /* Cena wyróżniona kolorem (np. czerwonym lub zielonym) */
+}
+
+
+/* --- RESPONSYWNOŚĆ (TELEFON) --- */
+@media (max-width: 900px) {
+    .dream-one-main {
+        flex-direction: column; /* Zdjęcie nad tekstem */
+        align-items: center;
+    }
+    
+    .dream-pic {
+        width: 100%; /* Zdjęcie na całą szerokość */
+        max-width: 300px; /* Ale nie szersze niż 300px */
+        height: 400px;
+        margin-bottom: 20px;
+    }
+    
+    .dream-text-container {
+        height: auto; /* Tekst nie musi mieć sztywnej wysokości */
+    }
+    
+    .actions {
+        justify-content: center; /* Przyciski na środku */
+        flex-wrap: wrap; /* Jak się nie zmieszczą, to jeden pod drugim */
+    }
+}
+
 
 /* --- WERSJA MOBILNA (Dla ekranów mniejszych niż 900px) --- */
 @media (max-width: 900px) {
@@ -347,62 +482,153 @@ body {
     }
 }
 
+/* --- Style dla Widoku Szczegółowego --- */
 
-
-/* --- Kafelki --- */
-
-#Krolestwo{
-    background-image: url(img/dream/krolestwo.jpg);
+/* --- NAGŁÓWEK SZCZEGÓŁÓW (Pasek z przyciskami) --- */
+.dream-details-header {
+    display: flex;
+    justify-content: space-between; /* Kluczowe: rozrzuca elementy na lewo i prawo */
+    align-items: center; /* Wyrównuje w pionie */
+    
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee; /* Linia oddzielająca */
 }
 
-#Lyzwy{
-    background-image: url(img/dream/Lyzwy.jpg);
+/* Grupa przycisków po prawej (żeby trzymały się razem) */
+.dream-actions-group {
+    display: flex;
+    gap: 15px;
 }
 
-#Masaz{
-    background-image: url(img/dream/Masaz.jpg);
+
+
+.dream-one {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-#Spacer{
-    background-image: url(img/dream/Spacer.jpg);
+.dream-one-main {
+    display: flex;
+    gap: 30px; /* Odstęp między zdjęciem a tekstem */
+    align-items: flex-start;
 }
 
-#Kimono{
-    background-image: url(img/dream/Kimono.jpg);
+/* Tekst zajmuje całe wolne miejsce */
+.dream-text-container {
+    flex: 1; 
 }
 
-#Bilet{
-    background-image: url(img/dream/Bilet.jpg);
+.dream-pic {
+    width: 300px;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    /* Nie zgniataj zdjęcia! */
+    flex-shrink: 0; 
 }
 
-#Quo{
-    background-image: url(img/dream/Quo.jpg);
+/* Styl przycisku "Wróć do listy" */
+.back-bar {
+    margin-bottom: 20px;
 }
 
-#Rekawice{
-    background-image: url(img/dream/Rekawice.jpg);
+/* --- STYL PRZYCISKU "WRÓĆ" --- */
+.btn-back {
+    background-color: transparent; /* Przezroczyste tło */
+    border: 1px solid #ccc;       /* Szara ramka */
+    color: #777;                  /* Szary tekst */
+    
+    padding: 10px 20px;
+    border-radius: 30px;          /* Pigułka */
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Ikona strzałki */
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-#Koncert{
-    background-image: url(img/dream/Koncert.jpg);
+.back-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.2s;
 }
 
-#ZnajdzJa{
-    background-image: url(img/dream/ZnajdzJa.jpg);
+.back-btn:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: #bbb;
 }
 
-#Kolacja{
-    background-image: url(img/dream/Kolacja.jpg);
+.btn-back:hover {
+    border-color: #333; /* Ciemniejsza ramka po najechaniu */
+    color: #333;        /* Ciemniejszy tekst */
+    background-color: #f9f9f9;
 }
 
-#Sakwy{
-    background-image: url(img/dream/Sakwy.jpeg);
+/* --- POPRAWKA RESPONSYWNA (TELEFON) --- */
+@media (max-width: 600px) {
+    /* Na małym ekranie układamy przyciski jeden pod drugim */
+    .dream-details-header {
+        flex-direction: column-reverse; /* Akcje na górze, Wróć na dole (dla wygody) */
+        gap: 20px;
+        align-items: stretch; /* Rozciągnij na całą szerokość */
+    }
+    
+    .dream-actions-group {
+        justify-content: center; /* Wyśrodkuj akcje */
+    }
+    
+    .btn-back {
+        justify-content: center; /* Wyśrodkuj tekst w przycisku */
+    }
 }
 
-#Skarpetki{
-    background-image: url(img/dream/Skarpetki.jpg);
+/* Styl tekstu w szczegółach */
+.dream-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
 }
 
-#Tealighty{
-    background-image: url(img/dream/Tealighty.jpg);
+/* To sprawi, że tagi <b> oraz <strong> wewnątrz opisu będą pancerne */
+.dream-desc b, 
+.dream-desc strong {
+    font-weight: 700; /* Wymuszamy wagę "Bold" z Google Fonts */
+    color: #000;      /* Opcjonalnie: lekko przyciemniamy kolor dla lepszego kontrastu */
+}
+
+.dream-one-price {
+    font-size: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+.dream-one-price strong {
+    color: #e74c3c;
+}
+
+/* POPRAWKA NA TELEFON */
+@media (max-width: 900px) {
+    .dream-one-main {
+        flex-direction: column; /* Zdjęcie nad tekstem */
+    }
+    .dream-pic {
+        width: 100%; /* Zdjęcie na całą szerokość */
+        height: 400px;
+    }
 }

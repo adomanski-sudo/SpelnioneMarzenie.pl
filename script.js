@@ -196,7 +196,7 @@ function showDreamDetails(id) {
         </div>
     `;
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 generateDreams();

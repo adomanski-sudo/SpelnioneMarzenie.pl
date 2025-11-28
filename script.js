@@ -45,7 +45,7 @@ const dreamsData = [
         title: "Kimono do sztuk walki",
         image: "img/dream/Kimono.jpg",
         price: "120 zł",
-        description: "Nie wiem czy to pasja na całe życie. Może tylko chwilowe zauroczenie. Nawet jeśli minie, to zostawi po sobie wile miłych wspomnień. Tak! Właśnie tak. Miłych. Każdy przyjęty cios, choć bolesny i każde trafienie (też bywają bolesne) z czasem przeradzają się w satysfakcję, że spróbowałem i tak wiele z tego wyniosłem. Nie tylko siniaki i zakwasy. Cenną naukę na całe życie. Może to już czas na nowy, bardziej dopasowany strój? Większą motywację, aby iść na kolejny, wyciskający siódme poty trening."
+        description: "Nie wiem czy to pasja na całe życie. Może tylko chwilowe zauroczenie. Nawet jeśli tak, to zostawi po sobie wile miłych wspomnień. Tak! Właśnie tak. Miłych. Każdy przyjęty cios, choć bolesny i każde trafienie (też bywają bolesne) z czasem przeradzają się w satysfakcję, że spróbowałem i tak wiele z tego wyniosłem. Nie tylko siniaki i zakwasy. Cenną naukę na całe życie. Może to już czas na nowy, bardziej dopasowany strój? Większą motywację, aby iść na kolejny, wyciskający siódme poty trening."
     },
     { 
         id: "Bilet", 

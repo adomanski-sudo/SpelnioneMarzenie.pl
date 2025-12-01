@@ -1,5 +1,7 @@
 import mysql from 'mysql2/promise';
 
+let selectedUser = 2;
+
 export default async function handler(req, res) {
   
     // Konfiguracja połączenia - zmienne środowiskowe
@@ -17,7 +19,7 @@ export default async function handler(req, res) {
 
     // Pobieramy dane
     const [rows] = await connection.execute(
-      'SELECT dream_id AS id, icon, category, title, image, price, description FROM dreams'
+      'SELECT dream_id AS id, icon, category, title, image, price, description FROM dreams where idUser = ?', [selectedUser]
     );
 
     // Zamknięcie połączenia

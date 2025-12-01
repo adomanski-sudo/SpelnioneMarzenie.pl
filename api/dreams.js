@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
     // Pobieramy dane
     const [rows] = await connection.execute(
-      'SELECT dream_id AS id, icon, category, title, image, price, description FROM dreams where idUser = ?', [selectedUser]
+      'SELECT id, dream_id, idUser, icon, category, title, image, price, description FROM dreams where idUser = ?', [selectedUser]
     );
 
     // Zamknięcie połączenia

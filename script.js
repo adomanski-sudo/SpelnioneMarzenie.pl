@@ -60,7 +60,7 @@ function generateDreams() {
 }
 
 function showDreamDetails(id) {
-    const dream = dreamsData.find(d => d.dream_idid === id);
+    const dream = dreamsData.find(d => d.dream_id === id);
     const container = document.getElementById("dreams");
 
     // Przełączamy widok
@@ -101,4 +101,4 @@ function showDreamDetails(id) {
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-generateDreams();
+fetchDreamsFromDatabase();

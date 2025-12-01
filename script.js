@@ -1,36 +1,22 @@
 // ------------------------
 // Zmienne Globalne
 // ------------------------
-
+import { fetchDreams } from './api.js';
 let dreamsData = [];
 
-// ------------------------
-// Pobieranie danych z Backend (API)
-// ------------------------
-async function fetchDreamsFromDatabase() {
+async function initApp() {
     try {
-        // 1. Wysyłamy zapytanie do API
-        const response = await fetch('/api/dreams');
+        // Pobieramy dane używając funkcji z api.js
+        dreamsData = await fetchDreams();
         
-        // 2. Jeśli coś poszło nie tak (np. błąd serwera), rzuć błąd
-        if (!response.ok) {
-            throw new Error('Błąd pobierania danych');
-        }
-
-        // 3. Przetwórz odpowiedź (JSON) na tablicę obiektów
-        const data = await response.json();
-        
-        // 4. Zapisz dane do zmiennej globalnej
-        dreamsData = data;
-
-        // 5. Dopiero teraz, gdy mamy dane, generujemy  kafelki!
+        // Generujemy widok
         generateDreams();
-
+        
     } catch (error) {
-        console.error("Wystąpił problem:", error);
-        alert("Nie udało się pobrać marzeń z bazy danych 😢");
+        alert("Nie udało się pobrać marzeń 😢");
     }
 }
+
 
 // ------------------------
 // Funkcja generująca HTML
@@ -105,4 +91,16 @@ function showDreamDetails(id) {
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-fetchDreamsFromDatabase();
+// ------------------------
+// EXPORT DO HTML (Bardzo Ważne!)
+// ------------------------
+// Ponieważ używamy modułów, HTML "nie widzi" naszych funkcji.
+// Musimy przypisać je do obiektu window, żeby 'onclick' w HTMLu zadziałał.
+
+window.showDreamDetails = showDreamDetails;
+window.generateDreams = generateDreams;
+
+// ------------------------
+// Start
+// ------------------------
+initApp();

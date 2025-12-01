@@ -1,7 +1,7 @@
 import { fetchDreams, fetchUser } from './api.js';
-import { generateProfil } from '.modules/generateProfil.js';
-import { generateDreams } from '.modules/generateDreams.js';
-import { showDreamDetails } from '.modules/showDreamDetails.js';
+import { generateProfil } from './generateDreams.js';
+import { generateDreams } from './generateDreams.js';
+import { showDreamDetails } from './showDreamDetails.js';
 
 // Stan aplikacji
 let appState = {

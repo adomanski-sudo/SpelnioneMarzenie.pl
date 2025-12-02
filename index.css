@@ -220,6 +220,6 @@ body {
 
     .user-card {
         padding: 10px;
-        width: 120px; /* SZTYWNA SZEROKOŚĆ - dzięki temu zmieszczą się obok siebie */
+        width: 140px; /* SZTYWNA SZEROKOŚĆ - dzięki temu zmieszczą się obok siebie */
     }
 }

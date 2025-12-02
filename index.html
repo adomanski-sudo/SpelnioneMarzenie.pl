@@ -9,13 +9,34 @@
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Czyje marzenia chcesz spełnić?</h1>
-            <p>Wybierz profil, aby zobaczyć listę marzeń</p>
-        </header>
+    <div class="main-split-container">
+        
+        <section class="left-panel">
+            <header class="panel-header">
+                <h1>Marzyciele</h1>
+                <div class="search-wrapper">
+                    <input type="text" id="user-search" placeholder="Szukaj osoby...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </header>
+            
+            <div id="users-list" class="users-list-container">
+                </div>
+        </section>
 
-        <div id="users-grid" class="users-grid"></div>
+        <section class="right-panel">
+            <header class="panel-header">
+                <h1>Ostatnio spełnione marzenia ✨</h1>
+                <p>To dzieje się teraz!</p>
+            </header>
+
+            <div class="feed-container">
+                <div id="live-feed-list" class="feed-list">
+                    </div>
+                <div class="fade-overlay"></div>
+            </div>
+        </section>
+
     </div>
 
     <script type="module" src="index.js"></script>

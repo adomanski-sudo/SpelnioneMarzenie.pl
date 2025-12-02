@@ -1,50 +1,23 @@
 <!DOCTYPE html>
 <html lang="pl">
-    
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spełnione Marzenie</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta name="description" content="Opowiedz o swoich marzeniach i pomóż innym spełnić je dla Ciebie.">
-    <meta name="keywords" content="Prezenty, marzenia, niespodzianki">
-    <meta name="author" content="Laura, Adrian">
-    <link rel="icon" href="img/icons/favicon.ico">
+    <title>Wybierz Marzyciela | Spełnione Marzenie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
 </head>
-
 <body>
-    <div id = 'container'>
-        <div id = 'header'>
-            <header>
-                <input type="text" id="search" placeholder="Szukaj...">
-                <div id = 'logo'>SpelnioneMarzenie.pl</div>
-                <div id = 'log'>Zaloguj</div>
-            </header>
-        </div>
-        <div id = 'content'>
-            <div id = 'profil'>
-                <div id = 'profil-image'>
-                </div>
-                <div id = 'profil-content'>
-                    <div id = 'profil-name'>
-                        Adrian <br>
-                        Domański <br>
-                    </div>
-                    <div id = 'profil-descript'>
-                        Moje marzenia są proste, ale środki do ich spełnienia bywają różne. Pomogą mi dokonać kluczowej zmiany w moim życiu: zmienić siebie. Może nie w kogoś lepszego, ale na pewno pełniejszego!
-                    </div>
-                </div>
-            </div>
 
-        <div id="dreams">
+    <div class="container">
+        <header>
+            <h1>Kogo marzenia chcesz spełnić?</h1>
+            <p>Wybierz profil, aby zobaczyć listę marzeń</p>
+        </header>
 
-
-        </div>
-
-        </div>
+        <div id="users-grid" class="users-grid"></div>
     </div>
 
-    <script type="module" src="script.js"></script>
-
+    <script type="module" src="index.js"></script>
 </body>
 </html>

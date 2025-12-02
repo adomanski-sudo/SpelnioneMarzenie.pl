@@ -10,6 +10,13 @@ body {
     overflow: hidden; /* Brak paska przewijania na body (desktop) */
 }
 
+#logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
 /* Główny kontener dzielący ekran */
 .main-split-container {
     display: flex;

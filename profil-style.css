@@ -77,6 +77,49 @@ body {
     background-color: #fff;
 }
 
+/* Nowy kontener dla elementów po lewej stronie */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Odstęp między domkiem a wyszukiwarką */
+}
+
+/* Styl ikonki Home */
+.btn-home {
+    color: #7f8c8d; /* Szary, pasujący do reszty */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.btn-home:hover {
+    color: #2c3e50; /* Ciemniejszy po najechaniu */
+    transform: scale(1.1); /* Lekki efekt powiększenia */
+}
+
+/* --- POPRAWKA DLA TELEFONÓW --- */
+/* Musimy zaktualizować Twoje media query, bo zmieniła się struktura nagłówka */
+
+@media (max-width: 900px) {
+    #header header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    /* Na telefonie układamy lewą grupę (dom + szukaj) na środku */
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #search {
+        /* Wyszukiwarka zajmuje większość miejsca, ale zostawia miejsce na domek */
+        width: 100%; 
+        max-width: 300px;
+    }
+}
+
 #content {
     display: grid;
     grid-template-columns: 300px 1fr;

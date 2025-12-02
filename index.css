@@ -176,8 +176,6 @@ body {
     margin-left: auto; /* Wypycha czas do prawej */
 }
 
-}
-
 /* Siatka kafelków użytkowników */
 .users-grid {
     display: flex;

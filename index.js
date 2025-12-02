@@ -42,8 +42,8 @@ function renderUserList(users) {
     let html = '';
     users.forEach(user => {
         html += `
-            <a href="profil.html?id=${user.id}" class="user-row">
-                <img src="${user.image}" alt="${user.first_name}">
+            <a href="profil.html?id=${user.id}" class="user-card">
+                <img src="${user.image}" alt="${user.first_name}" class="user-avatar">
                 <div class="user-info">
                     <div class="name">${user.first_name} ${user.last_name}</div>
                 </div>

@@ -1,9 +1,6 @@
 import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
-  // 1. Pobieramy ID z adresu URL
-  const userId = req.query.id || 1; 
-
   const dbConfig = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -15,10 +12,9 @@ export default async function handler(req, res) {
   try {
     const connection = await mysql.createConnection(dbConfig);
 
-    // 2. Pobieramy marzenia TYLKO dla tego userId
+    // Pobieramy tylko podstawowe dane do kafelków wyboru (ID, Imię, Zdjęcie)
     const [rows] = await connection.execute(
-      'SELECT dream_id, icon, category, title, image, price, description FROM dreams WHERE idUser = ?',
-      [userId]
+      'SELECT id, first_name, last_name, image FROM users'
     );
 
     await connection.end();
@@ -26,7 +22,6 @@ export default async function handler(req, res) {
     res.status(200).json(rows);
 
   } catch (error) {
-    console.error('Błąd bazy danych:', error);
-    res.status(500).json({ error: 'Nie udało się pobrać marzeń' });
+    res.status(500).json({ error: 'Błąd pobierania listy użytkowników' });
   }
 }

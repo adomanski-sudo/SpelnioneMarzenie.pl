@@ -11,7 +11,8 @@ export default async function handler(req, res) {
 
   try {
     const connection = await mysql.createConnection(dbConfig);
-    
+
+    // Pobieramy losowe marzenie i łączymy je z właścicielem (JOIN)
     const [rows] = await connection.execute(`
       SELECT 
         dreams.title, 
@@ -26,7 +27,11 @@ export default async function handler(req, res) {
 
     await connection.end();
 
-    // Zwracamy ten jeden wylosowany obiekt
+    // Jeśli nic nie znaleziono (np. pusta baza), zwróć pusty obiekt lub błąd
+    if (rows.length === 0) {
+        return res.status(404).json({ error: 'Brak marzeń w bazie' });
+    }
+
     res.status(200).json(rows[0]);
 
   } catch (error) {

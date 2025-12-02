@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-let selectedUser = 2;
+let selectedUser = 1;
 
 export default async function handler(req, res) {
   

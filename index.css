@@ -217,4 +217,8 @@ body {
     .users-list-container {
         max-height: 400px; 
     }
+
+    .user-card {
+        width: 40%;
+    }
 }

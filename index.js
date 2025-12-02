@@ -67,14 +67,20 @@ function startLiveFeed() {
 // Nowa funkcja, która "dzwoni" do nowego API
 async function fetchAndShowNewItem() {
     try {
-        const res = await fetch('/api/feed'); // Pytamy o losowe marzenie
-        if (!res.ok) return; // Jak błąd, to po prostu nic nie rób w tej turze
+        const res = await fetch('/api/feed');
         
-        const data = await res.json(); // Dostajemy gotowy obiekt z imieniem, ikoną itp.
+        // ZMIANA: Zamiast cichego return, pokaż błąd w konsoli
+        if (!res.ok) {
+            console.error("Błąd pobierania feedu:", res.status, res.statusText);
+            return;
+        }
+        
+        const data = await res.json();
+        console.log("Dane z feedu:", data); // Podgląd co przyszło
         addFeedItemToDOM(data);
 
     } catch (err) {
-        console.error("Błąd feedu:", err);
+        console.error("Błąd sieci:", err);
     }
 }
 

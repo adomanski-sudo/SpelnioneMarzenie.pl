@@ -25,6 +25,7 @@ export default async function handler(req, res) {
       LIMIT 1
     `);
 
+
     await connection.end();
 
     // Jeśli nic nie znaleziono (np. pusta baza), zwróć pusty obiekt lub błąd

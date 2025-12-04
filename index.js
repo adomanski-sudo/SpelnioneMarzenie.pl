@@ -121,11 +121,6 @@ function addFeedItemToDOM(data) {
 
     container.prepend(item);
 
-    const loader = document.getElementById("loader");
-        if (loader) {
-            loader.remove();
-        }
-
     if (container.children.length > 7) {
         container.removeChild(container.lastChild);
     }

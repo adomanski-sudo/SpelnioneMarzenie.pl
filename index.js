@@ -1,5 +1,6 @@
 let appState = {
     users: [] // Pobieramy tylko userów do lewego panelu
+    feedQueue: [] // Tu będziemy trzymać pobraną paczkę marzeń
 };
 
 async function init() {
@@ -55,47 +56,60 @@ function renderUserList(users) {
 
 // --- FUNKCJA PRAWA STRONA: Live Feed ---
 function startLiveFeed() {
-    // Pierwsze pobranie od razu
-    fetchAndShowNewItem();
-    
-    // Uruchamiamy pętlę losową
-    scheduleNextFeed();
+    // Od razu próbujemy wyświetlić pierwsze marzenie
+    processFeedQueue();
+
+    // Ustawiamy interwał co losowy czas
+    scheduleNextFeedItem();
 }
 
-function scheduleNextFeed() {
-    // 1. Losujemy czas
-    const randomTime = Math.floor(Math.random() * (4001) + 2000);
+function scheduleNextFeedItem() {
+    const randomTime = Math.floor(Math.random() * 4001) + 2000;
     
-    // 2. Ustawiamy JEDNORAZOWY timer
     setTimeout(() => {
-        fetchAndShowNewItem();
-        
-        // 3. Po wykonaniu, planujemy KOLEJNY (rekurencja)
-        scheduleNextFeed(); 
+        processFeedQueue();
+        scheduleNextFeedItem(); // Rekurencja (nieskończona pętla)
     }, randomTime);
 }
 
-// Nowa funkcja, która "dzwoni" do nowego API
-async function fetchAndShowNewItem() {
+// Główna funkcja zarządzająca kolejką
+async function processFeedQueue() {
+    // A. Jeśli kolejka jest pusta -> idź do serwera po nową paczkę
+    if (appState.feedQueue.length === 0) {
+        console.log("Kolejka pusta, pobieram nową paczkę z serwera...");
+        await fetchNewBatch();
+    }
+
+    // B. Jeśli (nadal) mamy coś w kolejce -> weź pierwsze i wyświetl
+    if (appState.feedQueue.length > 0) {
+        // .shift() wyciąga pierwszy element z tablicy i go usuwa (jak zdjęcie karty z góry talii)
+        const nextDream = appState.feedQueue.shift();
+        addFeedItemToDOM(nextDream);
+    }
+}
+
+// Funkcja pobierająca paczkę z API
+async function fetchNewBatch() {
     try {
-        const res = await fetch('/api/feed'); // Pytamy o losowe marzenie
-        if (!res.ok) return; // Jak błąd, to po prostu nic nie rób w tej turze
+        const res = await fetch('/api/feed');
+        if (!res.ok) return;
         
-        const data = await res.json(); // Dostajemy gotowy obiekt z imieniem, ikoną itp.
-
-        addFeedItemToDOM(data);
-
+        const newBatch = await res.json();
+        
+        // Mieszamy (opcjonalnie, choć SQL RAND() już to zrobił)
+        // i dodajemy do naszej kolejki
+        appState.feedQueue = newBatch;
+        
     } catch (err) {
-        console.error("Błąd feedu:", err);
+        console.error("Błąd pobierania paczki:", err);
     }
 }
 
 function addFeedItemToDOM(data) {
     const container = document.getElementById('live-feed-list');
 
-    // Tworzymy HTML z danych z serwera
     const item = document.createElement('div');
-    item.className = 'feed-item';
+    item.className = 'feed-item'; // Pamiętaj o CSS animacji slideIn!
     item.innerHTML = `
         <img src="${data.user_image}" class="feed-avatar">
         <div class="feed-content">
@@ -107,7 +121,6 @@ function addFeedItemToDOM(data) {
 
     container.prepend(item);
 
-    // Sprzątanie (żeby przeglądarka nie "puchła" od tysięcy divów)
     if (container.children.length > 7) {
         container.removeChild(container.lastChild);
     }

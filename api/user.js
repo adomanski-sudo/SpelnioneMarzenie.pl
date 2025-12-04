@@ -2,7 +2,6 @@ import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
   // 1. Pobieramy ID z adresu URL (np. ?id=3)
-  // Jeśli w adresie nie ma ID, domyślnie bierzemy 2 (Adrian) - jako zabezpieczenie
   const userId = req.query.id || 1; 
 
   const dbConfig = {

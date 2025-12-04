@@ -17,7 +17,7 @@ async function init() {
         // 3. Uruchamiamy Live Feed (Pytanie serwera co jakiś czas)
         startLiveFeed();
 
-        // 4. Obsługa wyszukiwarki (bez zmian)
+        // 4. Obsługa wyszukiwarki
         document.getElementById('user-search').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             const filteredUsers = appState.users.filter(u => 
@@ -61,7 +61,7 @@ function startLiveFeed() {
     // Kolejne co 4 sekundy
     setInterval(() => {
         fetchAndShowNewItem();
-    }, 4000);
+    }, Math.floor(Math.random() * (6000 - 2000 + 1) + 2000));
 }
 
 // Nowa funkcja, która "dzwoni" do nowego API

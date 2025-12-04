@@ -86,6 +86,7 @@ async function fetchAndShowNewItem() {
         // Usuwam loader
         const toDelete = document.getElementById('loader');
         toDelete.remove();
+
         addFeedItemToDOM(data);
 
     } catch (err) {

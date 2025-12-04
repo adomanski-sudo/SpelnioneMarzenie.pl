@@ -1,5 +1,5 @@
 let appState = {
-    users: [] // Pobieramy tylko userów do lewego panelu
+    users: [], // Pobieramy tylko userów do lewego panelu
     feedQueue: [] // Tu będziemy trzymać pobraną paczkę marzeń
 };
 

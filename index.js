@@ -122,7 +122,7 @@ function addFeedItemToDOM(data) {
     container.prepend(item);
 
     const toDelete = document.getElementById("loader");
-    if (loader) {
+    if (toDelete) {
         toDelete.remove();
     }
 

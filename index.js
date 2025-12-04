@@ -57,11 +57,22 @@ function renderUserList(users) {
 function startLiveFeed() {
     // Pierwsze pobranie od razu
     fetchAndShowNewItem();
+    
+    // Uruchamiamy pętlę losową
+    scheduleNextFeed();
+}
 
-    // Kolejne co 4 sekundy
-    setInterval(() => {
+function scheduleNextFeed() {
+    // 1. Losujemy czas
+    const randomTime = Math.floor(Math.random() * (4001) + 2000);
+    
+    // 2. Ustawiamy JEDNORAZOWY timer
+    setTimeout(() => {
         fetchAndShowNewItem();
-    }, Math.floor(Math.random() * (6000 - 2000 + 1) + 2000));
+        
+        // 3. Po wykonaniu, planujemy KOLEJNY (rekurencja)
+        scheduleNextFeed(); 
+    }, randomTime);
 }
 
 // Nowa funkcja, która "dzwoni" do nowego API

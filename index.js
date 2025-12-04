@@ -82,6 +82,10 @@ async function fetchAndShowNewItem() {
         if (!res.ok) return; // Jak błąd, to po prostu nic nie rób w tej turze
         
         const data = await res.json(); // Dostajemy gotowy obiekt z imieniem, ikoną itp.
+
+        // Usuwam loader
+        const toDelete = document.getElementById('loader');
+        toDelete.remove();
         addFeedItemToDOM(data);
 
     } catch (err) {

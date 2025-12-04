@@ -106,7 +106,6 @@ async function fetchNewBatch() {
 }
 
 function addFeedItemToDOM(data) {
-    console.log("Otrzymane dane do feedu:", data);
     const container = document.getElementById('live-feed-list');
 
     const item = document.createElement('div');

@@ -83,10 +83,6 @@ async function fetchAndShowNewItem() {
         
         const data = await res.json(); // Dostajemy gotowy obiekt z imieniem, ikoną itp.
 
-        // Usuwam loader
-        const toDelete = document.getElementById('loader');
-        toDelete.remove();
-
         addFeedItemToDOM(data);
 
     } catch (err) {

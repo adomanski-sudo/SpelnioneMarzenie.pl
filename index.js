@@ -121,6 +121,12 @@ function addFeedItemToDOM(data) {
 
     container.prepend(item);
 
+    if (container.children.length > 0) {
+        const toDelete = document.getElementById("loader");
+        toDelete.remove();
+        
+    }
+
     if (container.children.length > 7) {
         container.removeChild(container.lastChild);
     }

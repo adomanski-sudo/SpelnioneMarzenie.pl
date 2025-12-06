@@ -13,7 +13,7 @@ export function showDreamDetails(id, allDreams) {
                     <button id="back-btn-js" class="btn-back">← Wróć</button>
                     
                     <div class="dream-actions-group">
-                        <button class="dream-btn-spelnij" onclick="alert('Dziękuję! ❤️')">Spełnij</button>
+                        <button class="dream-btn-spelnij" onclick="alert('Dziękuję! To wspaniałe. ❤️')">Spełnij</button>
                         <button class="dream-btn-zrzutka">Zaproponuj zrzutkę</button>
                     </div>
                 </div>

@@ -74,7 +74,7 @@ export function showDreamDetails(dreamId, allDreams) {
                         ${dream.description}
                     </div>
 
-                    <p class="dream-price">Przybliżona cena: <strong style = "color: red;">${dream.price}</strong></p>
+                    <p class="dream-price">Przybliżona cena: <strong style = "color: #ffa600;">${dream.price}</strong></p>
 
                 </div>
             </div>

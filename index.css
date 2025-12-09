@@ -34,7 +34,7 @@ body {
     border-right: 1px solid #eee;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 10px;
     box-sizing: border-box;
 }
 

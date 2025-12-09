@@ -12,12 +12,6 @@ export function showDreamDetails(dreamId, allDreams) {
     const loggedUser = storedUser ? JSON.parse(storedUser) : null;
     const isOwner = loggedUser && loggedUser.id == dream.idUser;
 
-    // --- DIAGNOSTYKA (DODAJ TO) ---
-    console.log("--- DEBUGOWANIE WŁAŚCICIELA ---");
-    console.log("Zalogowany ID:", loggedUser ? loggedUser.id : "Brak", typeof (loggedUser ? loggedUser.id : null));
-    console.log("Marzenie ID Usera:", dream.idUser, typeof dream.idUser);
-    console.log("Czy pasują?:", loggedUser && loggedUser.id == dream.idUser);
-    // --------------------------------
 
     // --- BUDOWANIE PRZYCISKÓW ---
     let ownerActions = '';
@@ -80,7 +74,7 @@ export function showDreamDetails(dreamId, allDreams) {
                         ${dream.description}
                     </div>
 
-                    <p class="dream-price">Przybliżona cena: <strong>${dream.price}</strong></p>
+                    <p class="dream-price">Przybliżona cena: <strong style = "color: red;">${dream.price}</strong></p>
 
                 </div>
             </div>

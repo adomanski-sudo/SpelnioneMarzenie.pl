@@ -57,6 +57,8 @@ body {
     justify-content: space-between; /* Rozsuwa elementy na boki */
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 5px;
+    padding-top: 5px;
 }
 
 .header-top h1 {

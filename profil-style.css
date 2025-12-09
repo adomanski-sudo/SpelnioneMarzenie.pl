@@ -479,11 +479,6 @@ body {
     }
 }
 
-.guest-actions-bottom
-{
-    margin-bottom: 20 px;
-}
-
 
 /* --- WERSJA MOBILNA (Dla ekranów mniejszych niż 900px) --- */
 @media (max-width: 900px) {
@@ -881,7 +876,7 @@ body {
 
 /* --- PRZYCISKI GOŚCIA (NA DOLE) --- */
 .guest-actions-bottom {
-    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex; gap: 10px;
 }
 

@@ -5,6 +5,9 @@ let appState = {
 
 async function init() {
     try {
+         // 0. Sprawdzenie zalogowania
+        checkLoginState();
+
         // 1. Pobieramy TYLKO listę użytkowników
         const usersRes = await fetch('/api/users');
         
@@ -123,6 +126,33 @@ function addFeedItemToDOM(data) {
 
     if (container.children.length > 7) {
         container.removeChild(container.lastChild);
+    }
+}
+
+function checkLoginState() {
+    const container = document.getElementById('auth-container');
+    const storedUser = localStorage.getItem('loggedUser');
+
+    if (storedUser) {
+        // SCENARIUSZ 1: Użytkownik ZALOGOWANY
+        const user = JSON.parse(storedUser);
+        
+        container.innerHTML = `
+            <span class="user-greeting">Cześć, ${user.first_name}!</span>
+            <button id="logout-btn" class="auth-btn">Wyloguj</button>
+        `;
+
+        // Obsługa wylogowania
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('loggedUser'); // Czyścimy pamięć
+            window.location.reload(); // Odświeżamy stronę
+        });
+
+    } else {
+        // SCENARIUSZ 2: GOŚĆ (Niezalogowany)
+        container.innerHTML = `
+            <a href="login.html" class="auth-btn">Zaloguj</a>
+        `;
     }
 }
 

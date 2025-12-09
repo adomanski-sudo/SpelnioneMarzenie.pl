@@ -137,19 +137,22 @@ function checkLoginState() {
         // SCENARIUSZ 1: Użytkownik ZALOGOWANY
         const user = JSON.parse(storedUser);
         
+        // ZMIANA: Zamiast <span> z imieniem, tworzymy <a> (link) wyglądający jak przycisk
         container.innerHTML = `
-            <span class="user-greeting">Cześć, ${user.first_name}!</span>
+            <a href="profil.html?id=${user.id}" class="auth-btn" style="margin-right: 10px;">
+                Moje marzenia
+            </a>
             <button id="logout-btn" class="auth-btn">Wyloguj</button>
         `;
 
         // Obsługa wylogowania
         document.getElementById('logout-btn').addEventListener('click', () => {
-            localStorage.removeItem('loggedUser'); // Czyścimy pamięć
-            window.location.reload(); // Odświeżamy stronę
+            localStorage.removeItem('loggedUser');
+            window.location.reload();
         });
 
     } else {
-        // SCENARIUSZ 2: GOŚĆ (Niezalogowany)
+        // SCENARIUSZ 2: GOŚĆ
         container.innerHTML = `
             <a href="login.html" class="auth-btn">Zaloguj</a>
         `;

@@ -60,6 +60,7 @@ export function showDreamDetails(dreamId, allDreams) {
 
                 <div class="card-right">
                     ${ownerActions}
+                    ${guestActions}
 
                     <div class="dream-meta">
                         <span class="category-pill">${dream.icon} ${dream.category}</span>
@@ -67,13 +68,13 @@ export function showDreamDetails(dreamId, allDreams) {
                     </div>
 
                     <h2>${dream.title}</h2>
-                    <p class="dream-price">Cel: <strong>${dream.price}</strong></p>
                     
                     <div class="dream-description">
                         ${dream.description}
                     </div>
 
-                    ${guestActions}
+                    <p class="dream-price">Przybliżona cena: <strong>${dream.price}</strong></p>
+
                 </div>
             </div>
         </div>

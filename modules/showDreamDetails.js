@@ -10,7 +10,14 @@ export function showDreamDetails(dreamId, allDreams) {
     // Sprawdzanie właściciela
     const storedUser = localStorage.getItem('loggedUser');
     const loggedUser = storedUser ? JSON.parse(storedUser) : null;
-    const isOwner = loggedUser && loggedUser.id === dream.idUser;
+    const isOwner = loggedUser && loggedUser.id == dream.idUser;
+
+    // --- DIAGNOSTYKA (DODAJ TO) ---
+    console.log("--- DEBUGOWANIE WŁAŚCICIELA ---");
+    console.log("Zalogowany ID:", loggedUser ? loggedUser.id : "Brak", typeof (loggedUser ? loggedUser.id : null));
+    console.log("Marzenie ID Usera:", dream.idUser, typeof dream.idUser);
+    console.log("Czy pasują?:", loggedUser && loggedUser.id == dream.idUser);
+    // --------------------------------
 
     // --- BUDOWANIE PRZYCISKÓW ---
     let ownerActions = '';
@@ -33,8 +40,8 @@ export function showDreamDetails(dreamId, allDreams) {
         if (!dream.is_fulfilled) {
             guestActions = `
                 <div class="guest-actions-bottom">
-                    <button class="btn-primary" onclick="alert('Płatność...')">Spełnij (${dream.price})</button>
-                    <button class="btn-outline" onclick="alert('Zrzutka...')">Zrzutka</button>
+                    <button class="btn-primary" onclick="alert('Spełnij...')">Spełnij (${dream.price})</button>
+                    <button class="btn-outline" onclick="alert('Zrzutka...')">Zaproponuj zrzutkę</button>
                 </div>
             `;
         } else {

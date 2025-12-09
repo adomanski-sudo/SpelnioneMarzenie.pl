@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
     // 2. Pobieramy marzenia TYLKO dla tego userId
     const [rows] = await connection.execute(
-      'SELECT dream_id, icon, category, title, image, price, description FROM dreams WHERE idUser = ?',
+      'SELECT * FROM dreams WHERE idUser = ?',
       [userId]
     );
 

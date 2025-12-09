@@ -30,18 +30,18 @@ export function showDreamDetails(dreamId, allDreams) {
             </div>
         `;
     } else {
-        // Przyciski Gościa - Na dole (standardowe)
+        // Przyciski spełnienia 
         if (!dream.is_fulfilled) {
             guestActions = `
                 <div class="guest-actions-bottom">
-                    <button class="btn-primary" onclick="alert('Spełnij...')">Spełnij (${dream.price})</button>
-                    <button class="btn-outline" onclick="alert('Zrzutka...')">Zaproponuj zrzutkę</button>
+                    <button class="dream-btn-spelnij" onclick="alert('Spełnij...')">Spełnij</button>
+                    <button class="dream-btn-zrzutka" onclick="alert('Zrzutka...')">Zaproponuj zrzutkę</button>
                 </div>
             `;
         } else {
             guestActions = `
                 <div class="fulfilled-badge-large">
-                    ✨ To marzenie zostało już spełnione! ✨
+                    To marzenie zostało już spełnione!
                 </div>
             `;
         }

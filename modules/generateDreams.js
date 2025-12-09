@@ -29,6 +29,10 @@ export function generateDreams(dreams) {
             <div class="dream-content">
                 ${dream.title}
             </div>
+
+            <button class="dream-btn" onclick="window.triggerDetails('${dream.dream_id}')">
+                ${dream.is_fulfilled ? 'Zobacz' : 'Spełnij'}
+            </button>
             
             </div>
         `;

@@ -1,14 +1,16 @@
-import bcrypt from 'bcrypt';
+// hash.js
+// Zamiast 'import', używamy 'require'
+const bcrypt = require('bcrypt');
 
-const myPlainPassword = 'Diogenes2357!'; // <-- Tu wpisz hasło, jakie chcesz mieć
+const myPlainPassword = 'Diogenes2357!'; // <-- Tu wpisz swoje hasło
 
 async function generate() {
-    // 10 to liczba rund (koszt), ta sama, którą masz w register.js
+    // 10 to liczba rund (koszt)
     const hash = await bcrypt.hash(myPlainPassword, 10);
     
-    console.log("--- KOPIUJ PONIŻSZĄ LINIJKĘ ---");
+    console.log("--- TWÓJ HASH ---");
     console.log(hash);
-    console.log("-------------------------------");
+    console.log("-----------------");
 }
 
 generate();

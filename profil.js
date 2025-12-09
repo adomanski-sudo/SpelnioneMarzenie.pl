@@ -21,7 +21,7 @@ async function initApp() {
         appState.user = userData;
         appState.dreams = dreamsData;
 
-        // 2. Generujemy widoki
+        // Generujemy widoki
         generateProfil(appState.user);
         generateDreams(appState.dreams);
 

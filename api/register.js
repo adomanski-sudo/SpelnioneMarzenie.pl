@@ -25,7 +25,7 @@ export default async function handler(req, res) {
   try {
     const connection = await mysql.createConnection(dbConfig);
 
-    // 1. Sprawdź, czy email już istnieje
+    // Czy email już istnieje w bazie
     const [existingUsers] = await connection.execute(
       'SELECT id FROM users WHERE email = ?',
       [email]
@@ -36,11 +36,10 @@ export default async function handler(req, res) {
       return res.status(409).json({ error: 'Taki użytkownik już istnieje!' });
     }
 
-    // 2. Zahaszuj hasło (10 rund solenia - standard bezpieczeństwa)
+    // Haszowanie hasła - 10 rund
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 3. Dodaj użytkownika do bazy
-    // Zauważ: image dajemy na razie domyślny lub null
+    // Dodanie użytkownika 
     const [result] = await connection.execute(
       'INSERT INTO users (first_name, last_name, email, password, image) VALUES (?, ?, ?, ?, ?)',
       [first_name, last_name, email, hashedPassword, 'img/profil/default.jpg']
@@ -51,6 +50,7 @@ export default async function handler(req, res) {
     // Sukces!
     res.status(201).json({ message: 'Konto utworzone pomyślnie!', userId: result.insertId });
 
+    // Albo nie...
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Błąd serwera podczas rejestracji.' });

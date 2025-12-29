@@ -2,7 +2,7 @@
 // Zamiast 'import', używamy 'require'
 const bcrypt = require('bcrypt');
 
-const myPlainPassword = 'PrzyciskiSpelnienia'; // <-- Tu wpisz swoje hasło
+const myPlainPassword = 'SpelnioneMarzenie'; // <-- Tu wpisz swoje hasło
 
 async function generate() {
     // 10 to liczba rund (koszt)
